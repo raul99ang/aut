@@ -1,0 +1,127 @@
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-10"></div>
+    <div class="col-1 mt-5">
+      <button
+        style="margin-left: 10px"
+        class="btn btn-primary"
+        type="button"
+        routerLink="/Empleado"
+      >
+        Cerrar Lista
+      </button>
+    </div>
+    <div class="backgorund"></div>
+    <div class="col-6" *ngIf="!mostrarActualizar">
+      <app-Empleado-detail (emitChange)="restableceRegistro()"></app-Empleado-detail>
+    </div>
+    <div class="col-6" *ngIf="mostrarActualizar">
+      <app-Empleado-detail
+        [id]="id"
+        (emitChange)="restableceRegistro()"
+      ></app-Empleado-detail>
+    </div>
+    <div class="col-6 mt-5">
+      <div class="card">
+        <div class="card-info">
+          <div class="card-header">Tabla de Empleado</div>
+          <div class="card-body" style="overflow-x: auto">
+            <div class="card-body">
+              <table class="table table-white table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+<th scope="col">id</th>
+<th scope="col">area</th>
+<th scope="col">sucursal</th>
+<th scope="col">nombre</th>
+<th scope="col">edad</th>
+<th scope="col">asistencias</th>
+<th scope="col">fecha_ingreso</th>
+<th scope="col">fecha_nacimiento</th>
+<th scope="col">correo_electronico</th>
+<th scope="col">contrato</th>
+<th scope="col">vigencia_contrato</th>
+<th scope="col">acta_de_nacimiento</th>
+<th scope="col">reglamento_interno</th>
+<th scope="col">solicitud_de_trabajo</th>
+<th scope="col">formato_registro</th>
+<th scope="col">domicilio</th>
+<th scope="col">pais</th>
+<th scope="col">facebook</th>
+<th scope="col">telefono</th>
+<th scope="col">genero</th>
+<th scope="col">estado_civil</th>
+<th scope="col">imss</th>
+<th scope="col">infonavit</th>
+<th scope="col">curp</th>
+<th scope="col">permiso_menor</th>
+<th scope="col">ine_tutor</th>
+<th scope="col">ine_empleado</th>
+<!--<th scope="col">foto</th>-->
+
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Borrar</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr *ngFor="let empleado of empleadoAll; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{empleado.id}}</td>
+                    <td>{{empleado.area}}</td>
+                    <td>{{empleado.sucursal}}</td>
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.edad}}</td>
+                    <td>{{empleado.asistencias}}</td>
+                    <td>{{empleado.fecha_ingreso}}</td>
+                    <td>{{empleado.fecha_nacimiento}}</td>
+                    <td>{{empleado.correo_electronico}}</td>
+                    <td>{{empleado.contrato}}</td>
+                    <td>{{empleado.vigencia_contrato}}</td>
+                    <td>{{empleado.acta_de_nacimiento}}</td>
+                    <td>{{empleado.reglamento_interno}}</td>
+                    <td>{{empleado.solicitud_de_trabajo}}</td>
+                    <td>{{empleado.formato_registro}}</td>
+                    <td>{{empleado.domicilio}}</td>
+                    <td>{{empleado.pais}}</td>
+                    <td>{{empleado.facebook}}</td>
+                    <td>{{empleado.telefono}}</td>
+                    <td>{{empleado.genero}}</td>
+                    <td>{{empleado.estado_civil}}</td>
+                    <td>{{empleado.imss}}</td>
+                    <td>{{empleado.infonavit}}</td>
+                    <td>{{empleado.curp}}</td>
+                    <td>{{empleado.permiso_menor}}</td>
+                    <td>{{empleado.ine_tutor}}</td>
+                    <td>{{empleado.ine_empleado}}</td>
+                    <!--<td>{{empleado.foto}}</td>-->
+                    <td>
+                      <button
+                        (click)="actualizar(empleado.id)"
+                        class="btn btn-primary"
+                      >
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        (click)="eliminar(empleado)"
+                        class="btn btn-danger"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

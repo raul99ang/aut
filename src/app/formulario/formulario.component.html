@@ -1,0 +1,164 @@
+<nav class="navbar navbar-expand-lg bg-black">
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top "
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+  </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-haC7+LdfY1YYJFXa1rgx2Qw/wvG+Lbbn8ycXZp+XNudzYbY/LN1KHn3q3gobNE7HPu5L5S17S5G9z6mAn/uVUQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <div class="button-container m-5">
+    <button type="button" class="btn btn-primary" routerLink="/registro">
+      <i class="fas fa-arrow-left" style='font-size:24px'></i>
+    </button>
+    <div class="valoracion-container">
+      <div class="caritas">
+<div class="row">
+    <div class="col-1">
+  
+    </div>
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="row ">
+          <div class="col-1">
+  
+          </div>
+          <div class="col-5 ">
+  
+            <div class="row">
+              <div class="col-3">
+                <div class="mt-2">
+                  <img
+                    src="../../assets/img/kisspng-computer-icons-portable-network-graphics-avatar-tr-clip-directory-professional-transparent-amp-png-5d1bfa95e508d4.2980489715621147099381.jpg"
+                    WIDTH=35 BORDER=1 alt="">
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="mt-2">
+                  <label for="formGroupExampleInput" class="form-label">Detallador</label>
+                </div>
+              </div>
+              <div class="col-1"></div>
+  
+            </div>
+  
+  
+  
+  
+          </div>
+          <div class="col-5">
+            <div class="form-check mt-3">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                ¿El detallador estaba identificado?
+              </label>
+            </div>
+          </div>
+          <div class="col-1">
+  
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-1">
+  
+          </div>
+          <div class="col-5 ">
+  
+
+            <select class="form-select mt-2" aria-label="Default select example">
+              
+              <option selected>¿Como fue la calidad del secado?</option>
+              <option value="1">Mala</option>
+              <option value="2">Media</option>
+              <option value="3">Excelente</option>
+            </select>
+  
+  
+          </div>
+          <div class="col-5">
+  
+            <select class="form-select mt-2" aria-label="Default select example">
+              <option selected>¿Como fue la calidad del aspirado?</option>
+              <option value="1">Mala</option>
+              <option value="2">Media</option>
+              <option value="3">Excelente</option>
+            </select>
+  
+          </div>
+          <div class="col-1">
+  
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-1">
+  
+          </div>
+          <div class="col-5 ">
+  
+  
+            <select class="form-select mt-2 mb-2" aria-label="Default select example">
+              <option selected>¿Como fue la calidad del lavado?</option>
+              <option value="1">Mala</option>
+              <option value="2">Media</option>
+              <option value="3">Excelente</option>
+            </select>
+  
+          </div>
+          <div class="col-5">
+  
+            <select class="form-select mt-2" aria-label="Default select example">
+              <option selected>¿Como te trato? </option>
+              <option value="1">Mal</option>
+              <option value="2">Nomral</option>
+              <option value="3">Excelente</option>
+            </select>
+  
+  
+  
+  
+          </div>
+          <div class="col-1">
+  
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col-2 mt-4"><button type="button" class="btn btn-primary" routerLink="/Login">Enviar</button></div>
+          <div class="col-5"></div>
+        </div>
+  
+  
+      </div>
+  
+    </div>
+    <div class="col-1">
+  
+    </div>
+  </div>
+
+
+  <div class="valoracion-container">
+    <div class="caritas">
+      <!--<span class="carita" (click)="cambiarValoracion(1)" [class.selected]="valoracion >= 1">&#128542;</span>
+      <span class="carita" (click)="cambiarValoracion(2)" [class.selected]="valoracion >= 2">&#128543;</span>
+      <span class="carita" (click)="cambiarValoracion(3)" [class.selected]="valoracion >= 3">&#128528;</span>
+      <span class="carita" (click)="cambiarValoracion(4)" [class.selected]="valoracion >= 4">&#128513;</span>
+      <span class="carita" (click)="cambiarValoracion(5)" [class.selected]="valoracion >= 5">&#128525;</span>-->
+      <span class="carita far fa-frown" (click)="cambiarValoracion(1)" [class.selected]="valoracion >= 1">&#128542;</span>
+     
+      <span class="carita far fa-meh" (click)="cambiarValoracion(3)" [class.selected]="valoracion >= 3">&#128528;</span>
+    
+      <span class="carita far fa-smile" (click)="cambiarValoracion(5)" [class.selected]="valoracion >= 5">&#128525;</span>
+    </div>
+    <div class="valoracion-texto text-white">
+      <span>{{ valoracionTexto }}</span>
+    </div>
+    <button class="enviar-button" (click)="enviar()">Enviar</button>
+  </div>
+
+  
+  

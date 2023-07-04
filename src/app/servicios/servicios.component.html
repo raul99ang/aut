@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg bg-black">
+    <div class="btn3">
+      <button type="button" class="btn btn-primary" routerLink="/Landing">
+        <i class="fas fa-arrow-left" style='font-size:24px'></i>
+      </button>
+    </div>
+    
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top "
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+    </nav>
+    <button
+    style="margin-left: 10px"
+    class="btn btn-primary"
+    type="button"
+    routerLink="/servicios_detail"
+  >
+    Cerrar Lista
+  </button>
+<div class="container-fluid">
+    <div class="row">
+      
+        <div class="col-6" *ngIf="!mostrarActualizar">
+            <app-servicios-detail (emitChange)="restableceRegistro()"></app-servicios-detail>
+        </div>
+        <div class="col-6" *ngIf="mostrarActualizar">
+            <app-servicios-detail [id]="id" (emitChange)="restableceRegistro()"></app-servicios-detail>
+        </div>
+        <div class="col-6 mt-5">
+            <div class="card">
+ <input style="background-color:rgb(157, 223, 173)" type="search" [(ngModel)]="searchTerm" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+<div class="card-header">Table of Servicios</div><div class="card-body" style="overflow-x: auto;"><div class="card-body">
+          <table class="table table-white table-striped">
+              <thead>
+                <tr>
+<th scope="col">#</th>
+<th scope="col">id_servicios</th>
+<th scope="col">codigo_postal_cliente</th>
+<th scope="col">id_servicio</th>
+<th scope="col">descripcion</th>
+<th scope="col">adicionales</th>
+<th scope="col">tipo_vehiculo</th>
+<th scope="col">detallados</th>
+<th scope="col">QRCode</th>
+<th scope="col">metodo_pago</th>
+<th scope="col">costo_sin_iva</th>
+<th scope="col">costo_con_iva</th>
+<th scope="col">precio</th>
+<th scope="col">total</th>
+<th scope="col">fecha_registro</th>
+<th scope="col">sucursal</th>
+<th scope="col">id</th>
+
+<th scope="col">Update</th>
+            <th scope="col">Delete</th>
+ </tr>
+              </thead>
+<tbody class="table-group-divider" >
+                <tr *ngFor="let servicios of serviciosAll | filter: searchTerm; index as i">
+
+                  <th scope="row">{{i+1}}</th>
+<td>{{servicios.id_servicios}}</td>
+<td>{{servicios.codigo_postal_cliente}}</td>
+<td>{{servicios.id_servicio}}</td>
+<td>{{servicios.descripcion}}</td>
+<td>{{servicios.adicionales}}</td>
+<td>{{servicios.tipo_vehiculo}}</td>
+<td>{{servicios.detallados}}</td>
+<td>{{servicios.qRCode}}</td>
+<td>{{servicios.metodo_pago}}</td>
+<td>{{servicios.costo_sin_iva}}</td>
+<td>{{servicios.costo_con_iva}}</td>
+<td>{{servicios.precio}}</td>
+<td>{{servicios.total}}</td>
+<td>{{servicios.fecha_registro}}</td>
+<td>{{servicios.sucursal}}</td>
+<td>{{servicios.id}}</td>
+ <td><button (click)="actualizar(servicios.id_servicios)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                    <td><button (click)="eliminar(servicios)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+<router-outlet></router-outlet> 

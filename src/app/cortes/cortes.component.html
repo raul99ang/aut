@@ -1,0 +1,120 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top "
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+  </nav>
+  <!--<div>
+    <form>
+      <label for="fechaInicial">Fecha Inicial:</label>
+      <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial">
+  
+      <label for="fechaFinal">Fecha Final:</label>
+      <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal">
+  
+      <label for="agrupacion">Agrupar por:</label>
+      <select id="agrupacion" [(ngModel)]="agrupacion">
+        <option value="fecha">Fecha</option>
+        <option value="metodoPago">Método de Pago</option>
+      </select>
+  
+      <button type="submit" (click)="generarCorteDeCaja()">Generar Corte de Caja</button>
+    </form>
+  
+    <div *ngIf="corteDeCaja">
+      <h2>Corte de Caja</h2>
+      <table>
+        <thead>
+          <tr>
+            <th *ngIf="agrupacion === 'fecha'">Fecha</th>
+            <th *ngIf="agrupacion === 'metodoPago'">Método de Pago</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let corte of corteDeCaja">
+            <td *ngIf="agrupacion === 'fecha'">{{corte.fecha_registro}}</td>
+            <td *ngIf="agrupacion === 'metodoPago'">{{corte.fechaRegistro}}</td>
+            <td>{{corte.total | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>-->
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px;">
+      <h1>Reporte de servicios</h1>
+  
+      <button (click)="exportToCsv()">Exportar a CSV</button>
+  
+      <h2>Reporte de cortes por rango de fechas</h2>
+      <form>
+        <div>
+          <label for="fechaInicial">Fecha inicial:</label>
+          <input type="date" id="fechaInicial" name="fechaInicial">
+        </div>
+        <div>
+          <label for="fechaFinal">Fecha final:</label>
+          <input type="date" id="fechaFinal" name="fechaFinal">
+        </div>
+        <button type="button" (click)="downloadCsv()">Generar reporte</button>
+      </form>
+    </div>
+  </div>
+    <!--<table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Fecha</th>
+          <th>Cantidad</th>
+          <th>Empleado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let corte of empleado">
+          <td>{{ corte.id }}</td>
+          <td>{{ corte.fecha }}</td>
+          <td>{{ corte.cantidad }}</td>
+         
+  
+  </div>-->
+  <!--<div>
+    <h2>Reporte de clientes por rango de fechas</h2>
+    <form>
+      <div>
+        <label for="fechaInicial">Fecha inicial:</label>
+        <input type="date" id="fechaInicial" name="fechaInicial">
+      </div>
+      <div>
+        <label for="fechaFinal">Fecha final:</label>
+        <input type="date" id="fechaFinal" name="fechaFinal">
+      </div>
+      <button type="button" (click)="generarReporte()">Generar reporte</button>
+    </form>
+  </div>
+-->
+  
+<!--<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let servicio of servicio">
+      <td>{{ servicio.id }}</td>
+      <td>{{ servicio.nombre }}</td>
+      <td>{{ servicio.descripcion }}</td>
+      <td>{{ servicio.precio }}</td>
+    </tr>
+  </tbody>
+</table>-->

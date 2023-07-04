@@ -1,0 +1,108 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top "
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+  <div>
+    <button (click)="exportToExcel2()">Exportar datos</button>
+  </div>
+</nav>
+
+<div style="display: flex; justify-content: space-between; align-items: center; height: 80vh;">
+  <div style="flex-basis: 50%; border: 1px solid rgb(255, 255, 255); padding: 50px; backdrop-filter: blur(10px);">
+    <div class="table-responsive mx-auto d-flex justify-content-center" style="max-width: 10000px;">
+<div class="container">
+  <form [formGroup]="empleadoForm">
+    <div class="form-group">
+      <label for="empleado" style="color: aliceblue;">Empleado:</label>
+      <input type="text" class="form-control" id="empleado" formControlName="empleado">
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento"style="color: aliceblue;">Fecha de Nacimiento:</label>
+      <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento">
+    </div>
+    <div class="form-group">
+      <label for="email" style="color: aliceblue;">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="domicilio" style="color: aliceblue;">Domicilio:</label>
+      <input type="text" class="form-control" id="domicilio" formControlName="domicilio">
+    </div>
+    <div class="form-group">
+      <label for="pais" style="color: aliceblue;">País:</label>
+      <input type="text" class="form-control" id="pais" formControlName="pais">
+    </div>
+    <div class="form-group">
+      <label for="facebook" style="color: aliceblue;">Facebook:</label>
+      <input type="text" class="form-control" id="facebook" formControlName="facebook">
+    </div>
+    <div class="form-group">
+      <label for="idTipoEmpleado" style="color: aliceblue;">ID Tipo Empleado:</label>
+      <input type="number" class="form-control" id="idTipoEmpleado" formControlName="idTipoEmpleado">
+    </div>
+    <div class="form-group">
+      <label for="idGenero" style="color: aliceblue;">ID Género:</label>
+      <input type="number" class="form-control" id="idGenero" formControlName="idGenero">
+    </div>
+    <div class="form-group">
+      <label for="idEstadoCivil" style="color: aliceblue;">ID Estado Civil:</label>
+      <input type="number" class="form-control" id="idEstadoCivil" formControlName="idEstadoCivil">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+  </form>
+</div>
+</div>
+  </div>
+</div>
+
+<div style="flex-basis: 45%; border: 1px solid rgb(255, 255, 255); padding: 50px; backdrop-filter: blur(10px);">
+  <div class="table-responsive mx-auto d-flex justify-content-center" style="max-width: 10000px;">
+    <div style="overflow-y: scroll; max-height: 300px;">
+    <table class="table "style="color:rgb(255, 255, 255); ">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Empleado</th>
+          <th>Fecha de nacimiento</th>
+          <th>Email</th>
+          <th>Domicilio</th>
+          <th>País</th>
+          <th>Facebook</th>
+          <th>Tipo de empleado</th>
+          <th>Género</th>
+          <th>Estado civil</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.idEmpleado }}</td>
+          <td>{{ empleado.empleado }}</td>
+          <td>{{ empleado.fechaNacimiento | date }}</td>
+          <td>{{ empleado.email }}</td>
+          <td>{{ empleado.domicilio }}</td>
+          <td>{{ empleado.pais }}</td>
+          <td>{{ empleado.facebook }}</td>
+          <td>{{ empleado.idTipoEmpleado }}</td>
+          <td>{{ empleado.idGenero }}</td>
+          <td>{{ empleado.idEstadoCivil }}</td>
+          <td>
+            <button (click)="onEdit(empleado)">Editar</button></td>
+            <td>
+            <button (click)="onDelete(empleado)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,219 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+  <button type="button" class="btn btn-primary" routerLink="/registro">
+    <i class="fas fa-arrow-left" style='font-size:24px'></i>
+  </button>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="card-info">
+          <div class="card-header text-white">
+            {{ this.isNew ? "Registrar Servicio" : "Actualizar Servicio" }}
+          </div>
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitServicio(forma)"
+              #forma="ngForm"
+              class="row g-3"
+            >
+              <div class="col-md-6">
+                <label for="label-id_servicio" class="form-label text-white">Id de servicio:</label>"
+                <input
+                  #inputid_servicio="ngModel"
+                  type="text"
+                  name="id_servicio"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputid_servicio.touched && inputid_servicio.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.id_servicio"
+                  class="form-control"
+                  id="id_servicio"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-nombre_servicio" class="form-label text-white">Nombre de servicio:</label
+                >
+                <input
+                  #inputnombre_servicio="ngModel"
+                  type="text"
+                  name="nombre_servicio"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputnombre_servicio.touched &&
+                      inputnombre_servicio.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.nombre_servicio"
+                  class="form-control"
+                  id="nombre_servicio"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-descripcion" class="form-label text-white"
+                  >Descripcion:</label
+                >
+                <input
+                  #inputdescripcion="ngModel"
+                  type="text"
+                  name="decripcion"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputdescripcion.touched &&
+                      inputdescripcion.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.descripcion"
+                  class="form-control"
+                  id="descripcion"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6 text-white">
+                <label for="label-tipo_veiculo" class="form-label text-white"
+                  >Tipo de vehiculo:</label
+                >
+                <input
+                  #inputtipo_veiculo="ngModel"
+                  type="text"
+                  name="tipo_veiculo"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputtipo_veiculo.touched &&
+                      inputtipo_veiculo.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.tipo_vehiculo"
+                  class="form-control"
+                  id="tipo_veiculo"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-costo_sin_iva"  class="form-label text-white">costo_sin_iva:</label>
+                <input #inputcosto_sin_iva="ngModel"  type="text" name="costo_sin_iva" [ngClass]="{'is-invalid': inputcosto_sin_iva.touched && inputcosto_sin_iva.hasError('required') }" [(ngModel)]="servicio.costo_sin_iva" class="form-control" id="costo_sin_iva" value="" required>
+                <div class="invalid-feedback">
+                                Field required
+                            </div>
+                        </div>
+              <div class="col-md-6 ">
+                <label for="label-costo_con_iva" class="form-label text-white"
+                  >Costo con iva:</label
+                >
+                <input
+                  #inputcosto_con_iva="ngModel"
+                  type="text"
+                  name="costo_con_iva"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputcosto_con_iva.touched &&
+                      inputcosto_con_iva.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.costo_con_iva"
+                  class="form-control"
+                  id="costo_con_iva"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-fecha_registro" class="form-label text-white"
+                  >Fecha de registro:</label
+                >
+                <input
+                  #inputfecha_registro="ngModel"
+                  type="date"
+                  name="fecha_registro"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputfecha_registro.touched &&
+                      inputfecha_registro.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.fecha_registro"
+                  class="form-control"
+                  id="fecha_registro"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-sucursal" class="form-label text-white">Sucursal:</label
+                >
+                <input
+                  #inputsucursal="ngModel"
+                  type="text"
+                  name="sucursal"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputsucursal.touched &&
+                      inputsucursal.hasError('required')
+                  }"
+                  [(ngModel)]="servicio.sucursal"
+                  class="form-control"
+                  id="sucursal"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-12 text-center">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="forma.invalid"
+                >
+                  {{ this.isNew ? "Registrar" : "Actualizar" }}
+                </button>
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="limpiarForm(forma)"
+                >
+                  Limpiar
+                </button>
+                <button
+                  *ngIf="!this.isNew"
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="emitChange.emit()"
+                >
+                  Cancelar
+                </button>
+                <button
+                style="margin-left: 10px"
+                class="btn btn-primary"
+                type="button"
+                routerLink="/servicio"
+              >
+                Lista
+              </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+

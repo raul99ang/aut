@@ -1,0 +1,176 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top"
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+</nav>
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+<div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+<form (submit)="registrarGastoCompra()">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="tipoGasto" style="color: rgb(235, 235, 229)"
+        >Tipo de gasto:</label
+      >
+      <select
+        id="tipoGasto"
+        name="tipoGasto"
+        [(ngModel)]="nuevoGastoCompra.tipoGasto"
+      >
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+      </select>
+    </div>
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="concepto" style="color: rgb(235, 235, 229)">Concepto:</label>
+      <select
+        id="concepto"
+        name="concepto"
+        [(ngModel)]="nuevoGastoCompra.concepto"
+      >
+        <option value="Nomina">Nómina</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="fecha" style="color: rgb(235, 235, 229)">Fecha:</label>
+      <input
+        type="date"
+        id="fecha"
+        name="fecha"
+        [(ngModel)]="nuevoGastoCompra.fecha"
+      />
+    </div>
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="importe" style="color: rgb(235, 235, 229)">Importe:</label>
+      <input
+        type="number"
+        id="importe"
+        name="importe"
+        [(ngModel)]="nuevoGastoCompra.importe"
+      />
+    </div>
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="recibio" style="color: rgb(235, 235, 229)">Recibió:</label>
+      <input
+        type="text"
+        id="recibio"
+        name="recibio"
+        [(ngModel)]="nuevoGastoCompra.recibio"
+      />
+    </div>
+    <!--<div style="flex-basis: calc(33.33% - 10px)">
+      <label for="autoriza" style="color: rgb(235, 235, 229)">Autorizó:</label>
+      <input
+        type="text"
+        id="autoriza"
+        name="autoriza"
+        [(ngModel)]="nuevoGastoCompra.autoriza"
+      />
+    </div>-->
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="empleado" style="color: rgb(235, 235, 229)">Autoriza :</label>
+      <select
+        type="text"
+        id="empleado"
+        name="empleado"
+        [(ngModel)]="nuevoGastoCompra.empleado"
+      >
+      <option *ngFor="let empleado of empleadoGatos" [value]="empleado.empleado">{{empleado.empleado}}</option>
+    </select>
+    </div>
+    <div style="flex-basis: calc(33.33% - 10px)">
+      <label for="sucursal " style="color: rgb(235, 235, 229)">Sucursal:</label>
+      <select
+        id="sucursal"
+        name="sucursal"
+        [(ngModel)]="nuevoGastoCompra.sucursal"
+      >
+      <option *ngFor="let sucursal of sucursalGastos" [value]="sucursal.sucursal">{{sucursal.sucursal}}</option>
+      </select>
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      height: 25vh;
+    "
+  >
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 0px">
+      <button type="submit">Registrar</button>
+    </div>
+
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 20px">
+      <button type="submit">Resumen de gastos</button>
+    </div>
+
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 20px">
+      <button type="submit">Modificar registro</button>
+    </div>
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 20px">
+      <button type="submit">Reimprimir registro</button>
+    </div>
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 20px">
+      <button type="submit">Nuevo concepto</button>
+    </div>
+    <div style="border: 1px solid rgba(255, 255, 255, 0); padding: 20px">
+      <button type="submit">Borrar registro</button>
+    </div>
+  </div>
+</form>
+</div>
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1vh;
+  "
+>
+</div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 40vh;">
+  <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div style="overflow-y: scroll; max-height: 300px;">
+    <table class="table" style="color: rgb(255, 255, 252)">
+      <thead>
+        <tr>
+          <th>Id gasto</th>
+          <th>Fecha</th>
+          <th>Id tipo gasto</th>
+          <th>Id Concepto</th>
+          <th>Importe</th>
+          <th>Autoriza</th>
+          <th>Recibe</th>
+          <th>Sucursal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let gasto of tblGastosCompras"
+        >
+          <td>{{ gasto.idGasto }}</td>
+          <td>{{ gasto.fecha | date}}</td>
+          <td>{{ gasto.idTipoGasto }}</td>
+          <td>{{ gasto.idConcepto }}</td>
+          <td>{{ gasto.importe }}</td>
+          <td>{{ gasto.idAutoriza }}</td>
+          <td>{{ gasto.recibe }}</td>
+          <td>{{ gasto.id_Sucursal}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<router-outlet></router-outlet>

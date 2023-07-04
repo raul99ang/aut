@@ -1,0 +1,124 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top "
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+    </nav>
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+<form (submit)="registrarGastoCompra()">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="id_servicio" style="color:rgb(235, 235, 229)">Descripción :</label>
+        <input type="number" id="id_servicio" name="id_servicio" [(ngModel)]="nuevoServicio.id_servicio">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="nombre_servicio" style="color:rgb(235, 235, 229)">Precio :</label>
+        <select id="nombre_servicio" name="nombre_servicio" [(ngModel)]="nuevoServicio.nombre_servicio">
+          <option *ngFor="let nombreServicio of nombresServicios" [value]="nombreServicio">{{ nombreServicio }}</option>
+        </select>
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="seCobra" style="color:rgb(235, 235, 229)">¿Se Cobra? :</label>
+        <input type="checkbox" id="seCobra" name="seCobra" [(ngModel)]="nuevoServicio.descripcion">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="promocion" style="color:rgb(235, 235, 229)">¿Promoción? :</label>
+        <input type="checkbox" id="promocion" name="promocion" [(ngModel)]="nuevoServicio.tipo_vehiculo">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="principal" style="color:rgb(235, 235, 229)">¿Principal? :</label>
+        <input type="checkbox" id="principal" name="principal" [(ngModel)]="nuevoServicio.costo_sin_iva ">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="adicional" style="color:rgb(235, 235, 229)">¿Adicional? :</label>
+        <input type="checkbox" id="adicional" name="adicional" [(ngModel)]="nuevoServicio.costo_con_iva">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="detallado" style="color:rgb(235, 235, 229)">¿Detallado? : </label>
+        <input type="checkbox" id="detallado" name="detallado" [(ngModel)]="nuevoServicio.fecha_registro ">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="cobraIVA" style="color:rgb(235, 235, 229)">¿Cobra IVA? :</label>
+        <input type="checkbox" id="cobraIVA" name="cobraIVA" [(ngModel)]="nuevoServicio">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="prepago" style="color:rgb(235, 235, 229)">¿Prepago? :</label>
+        <input type="checkbox" id="prepago" name="prepago" [(ngModel)]="nuevoServicio">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="combo" style="color:rgb(235, 235, 229)">¿Combo? :</label>
+        <input type="checkbox" id="combo" name="combo" [(ngModel)]="nuevoServicio">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="numLavadas" style="color:rgb(235, 235, 229)">Numero Lavados :</label>
+        <input type="number" id="numLavadas" name="numLavadas" [(ngModel)]="nuevoServicio">
+      </div>
+      <div style="flex-basis: calc(33.33% - 10px);">
+        <label for="aplica6taGrat" style="color:rgb(235, 235, 229)">¿Sexta Gratis? :</label>
+        <input type="checkbox" id="aplica6taGrat" name="aplica6taGrat" [(ngModel)]="nuevoServicio">
+      </div>
+    </div>
+    <div style="display: flex; justify-content: left; align-items: center; height: 25vh;">
+        <div style="border: 1px solid rgba(0, 0, 0, 0); padding: 0px;">
+    <button type="submit">Agregar</button>
+        </div>
+      </div>
+  </form>
+</div>
+  <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+      <div style="overflow-y: scroll; max-height: 300px;">
+  <table class="table " style="color:rgb(255, 255, 255); ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id de servicio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">¿Se Cobra?</th>
+        <th scope="col">¿Promoción?</th>
+        <th scope="col">¿Principal?</th>
+        <th scope="col">¿Adicional?</th>
+        <th scope="col">¿Detallado?</th>
+        <th scope="col">¿Cobra IVA?</th>
+        <th scope="col">¿Prepago?</th>
+        <th scope="col">¿Combo?</th>
+        <th scope="col">Numero Lavados</th>
+        <th scope="col">¿Sexta Gratis?</th>
+        <th scope="col">¿Eliminar?</th>
+        
+        <!--<th scope="col">Actualizar</th>-->
+              <!--<th scope="col">Borrar</th>-->
+        </tr>
+                </thead>
+        <tbody class="table-group-divider"  style="color: aliceblue;">
+                  <tr *ngFor="let servicios of tbl_Servicio; index as i">
+        
+                    <th scope="row">{{i+1}}</th>
+        <td>{{servicios.idServicio}}</td>
+        <td>{{servicios.descripcion}}</td>
+        <td>{{servicios.precio}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.seCobra" [checked]="servicios.seCobra">{{servicios.seCobra? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.promocion" [checked]="servicios.promocion">{{servicios.promocion? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.principal" [checked]="servicios.principal">{{servicios.principal? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.adicional" [checked]="servicios.adicional">{{servicios.adicional? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.detallado" [checked]="servicios.detallado">{{servicios.detallado? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.cobraIVA" [checked]="servicios.cobraIVA">{{servicios.cobraIVA? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.aplicaPrep" [checked]="servicios.aplicaPrep">{{servicios.aplicaPrep? 'Sí' : 'No'}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.esCombo" [checked]="servicios.esCombo">{{servicios.esCombo? 'Sí' : 'No'}}</td>
+        <td>{{servicios.numLavadas}}</td>
+        <td><input type="checkbox" [(ngModel)]="servicios.aplica6taGrat" [checked]="servicios.aplica6taGrat">{{servicios.aplica6taGrat? 'Sí' : 'No'}}</td>
+        <td><button class="btn btn-danger" (click)="borrarServicio(servicios)" disabled>Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+</div>
+  

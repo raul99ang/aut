@@ -1,0 +1,75 @@
+.card {
+    width: 100%;
+    height: 900%;
+    background: linear-gradient(45deg, #fcfcfc 25%, #ffffff 25%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%rgb(255, 255, 255)cc 50%, #ffffff 75%,  rgb(255, 255, 255) 75%,  rgb(201, 12, 12) 100%);
+    animation: animate_6810 15s linear infinite;
+    transition: .3s;
+    background-size: 60px 60px;
+    position: relative;
+    overflow: visible;
+    border-radius: 20px;
+  }
+  
+  .card-info {
+    position: absolute;
+    width: 96%;
+    height: 96%;
+    left: 2%;
+    top: 2%;
+    background-color: rgb(55, 128, 212);
+    border-radius: 20px;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-info:hover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(194, 42, 42, 0.822);
+    backdrop-filter: blur(12px);
+    left: 20px;
+    top: 20px;
+  }
+  
+  .card-info p {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  @keyframes animate_6810 {
+    0% {
+      background-position: 0px;
+    }
+  
+    100% {
+      background-position: 1000px;
+    }
+  }
+
+
+
+  button {
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    border-radius: 9px;
+    background: #65bff3;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+   }
+   
+   #bottone1:hover {
+    box-shadow: 7px 5px 56px -14px #C3D900;
+   }
+   
+   #bottone1:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #C3D900;
+   }

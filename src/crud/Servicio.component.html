@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-10"></div>
+    <div class="col-1 mt-5">
+      <button
+        style="margin-left: 10px"
+        class="btn btn-primary"
+        type="button"
+        routerLink="/Servicio"
+      >
+        Cerrar Lista
+      </button>
+    </div>
+    <div class="backgorund"></div>
+    <div class="col-6" *ngIf="!mostrarActualizar">
+      <app-Servicio-detail (emitChange)="restableceRegistro()"></app-Servicio-detail>
+    </div>
+    <div class="col-6" *ngIf="mostrarActualizar">
+      <app-Servicio-detail
+        [id]="id"
+        (emitChange)="restableceRegistro()"
+      ></app-Servicio-detail>
+    </div>
+    <div class="col-6 mt-5">
+            <div class="card">
+<div class="card-header">Servicios</div><div class="card-body" style="overflow-x: auto;"><div class="card-body">
+          <table class="table table-white table-striped">
+              <thead>
+                <tr>
+<th scope="col">#</th>
+<th scope="col">Id de servicio</th>
+<th scope="col">Nombre de servicio</th>
+<th scope="col">Descripción</th>
+<th scope="col">Tipo de vehiculo</th>
+<th scope="col">Costo sin iva</th>
+<th scope="col">Costo con iva</th>
+<th scope="col">Fecha de registro</th>
+<th scope="col">Sucursal</th>
+
+<th scope="col">Actualizar</th>
+            <th scope="col">Borrar</th>
+ </tr>
+              </thead>
+<tbody class="table-group-divider" >
+                <tr *ngFor="let servicio of servicioAll; index as i">
+
+                  <th scope="row">{{i+1}}</th>
+<td>{{servicio.id_servicio}}</td>
+<td>{{servicio.nombre_servicio}}</td>
+<td>{{servicio.descripcion}}</td>
+<td>{{servicio.tipo_vehiculo}}</td>
+<td>{{servicio.costo_sin_iva}}</td>
+<td>{{servicio.costo_con_iva}}</td>
+<td>{{servicio.fecha_registro}}</td>
+<td>{{servicio.sucursal}}</td>
+ <td><button (click)="actualizar(servicio.id_servicio)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                    <td><button (click)="eliminar(servicio)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+
+<router-outlet></router-outlet> 

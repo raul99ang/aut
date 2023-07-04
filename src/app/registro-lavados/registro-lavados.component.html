@@ -1,0 +1,86 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top "
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+    </nav>
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+      <div class="row">
+        <form (submit)="registrarGastoCompra()">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div style="flex-basis: calc(33.33% - 10px);">
+              <label for="nuevoServicio" style="color:rgb(235, 235, 229)">Servicios :</label>
+              <select id="servicios" name="servicios" [(ngModel)]="nuevoServicio.servicios">
+                <option *ngFor="let servicio of tbl_servicios" [value]="servicio.descripcion">{{ servicio.descripcion }}</option>
+              </select>
+            </div>
+            <div style="flex-basis: calc(33.33% - 10px);">
+              <label for="nuevoServicio" style="color:rgb(235, 235, 229)">Adicionales :</label>
+              <select id="descripcion" name="descripcion" [(ngModel)]="nuevoServicio.adicionales">
+                <option *ngFor="let servicio1 of tbl_seleccion1" [value]="servicio1.descripcion">{{ servicio1.descripcion }}</option>
+              </select>
+            </div>
+            <div style="flex-basis: calc(33.33% - 10px);">
+              <label for="nuevoServicio" style="color:rgb(235, 235, 229)">Promociones :</label>
+              <select id="promociones" name="promociones" [(ngModel)]="nuevoServicio.promociones">
+                <option *ngFor="let servicio2 of tbl_seleccion2" [value]="servicio2.descripcion">{{ servicio2.descripcion }}</option>
+              </select>
+            </div>
+            <div style="flex-basis: calc(33.33% - 10px);">
+              <label for="nuevoServicio" style="color:rgb(235, 235, 229)">Detallados :</label>
+              <select id="detallados" name="detallados" [(ngModel)]="nuevoServicio.detallados">
+                <option *ngFor="let servicio3 of tbl_seleccion2" [value]="servicio3.descripcion">{{ servicio3.descripcion }}</option><!--Cambiar a seleccion3 y ver por que no funciona-->
+              </select>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: left; align-items: center; height: 25vh;">
+              <div style="border: 1px solid rgba(0, 0, 0, 0); padding: 0px;">
+          <button class="btn btn-success" type="submit">Agregar</button>
+              </div>
+            </div>
+        </form>
+      </div>
+
+</div>
+<div class="row">
+  <div style=" justify-content: center; align-items: center; height: 1vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+      <div class="contador" style="color:rgb(255, 255, 255)">Cantidad de lavados al dia: {{numRegistros}}<div>
+        <p>Precio: {{tblServicios.precio}}</p>
+        <p>Descuento: {{tblServicioDescuentos.porcentaje}}%</p>
+        <p>Total: {{precioTotal}}</p>
+      </div></div>
+
+      <div style="overflow-y: scroll; max-height: 300px;">
+  <table class="table" style="color:rgb(255, 255, 255); ">
+    <thead>
+      <tr>
+        <th>Nombre de servicio</th>
+        <th>Adicionales</th>
+        <th>Promociones</th>
+        <th>Detallados</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let servicio of lavados" style="color:rgb(255, 255, 255)">
+        <td>{{servicio.servicios}}</td>
+        <td>{{servicio.adicionales}}</td>
+        <td>{{servicio.promociones}}</td>
+        <td>{{servicio.detallados}}</td>
+
+        <td><button class="btn btn-danger" (click)="borrarServicio(servicio)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+</div>
+
+</div>

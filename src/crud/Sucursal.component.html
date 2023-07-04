@@ -1,0 +1,56 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-10"></div>
+    <div class="col-1 mt-5">
+      <button
+        style="margin-left: 10px"
+        class="btn btn-primary"
+        type="button"
+        routerLink="/Sucursal"
+      >
+        Cerrar Lista
+      </button>
+    </div>
+    <div class="backgorund"></div>
+    <div class="col-6" *ngIf="!mostrarActualizar">
+      <app-Sucursal-detail (emitChange)="restableceRegistro()"></app-Sucursal-detail>
+    </div>
+    <div class="col-6" *ngIf="mostrarActualizar">
+      <app-Sucursal-detail
+        [id]="id"
+        (emitChange)="restableceRegistro()"
+      ></app-Sucursal-detail>
+    </div>
+    <div class="col-6 mt-5">
+            <div class="card">
+<div class="card-header">Tabla de Sucursal</div><div class="card-body" style="overflow-x: auto;"><div class="card-body">
+          <table class="table table-white table-striped">
+              <thead>
+                <tr>
+<th scope="col">#</th>
+<th scope="col">Sucursal</th>
+<th scope="col">Dirección</th>
+<th scope="col">Telefono</th>
+
+<th scope="col">Update</th>
+            <th scope="col">Delete</th>
+ </tr>
+              </thead>
+<tbody class="table-group-divider" >
+                <tr *ngFor="let sucursal of sucursalAll; index as i">
+
+                  <th scope="row">{{i+1}}</th>
+<td>{{sucursal.sucursal}}</td>
+<td>{{sucursal.direccion}}</td>
+<td>{{sucursal.telefono}}</td>
+ <td><button (click)="actualizar(sucursal.sucursal)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                    <td><button (click)="eliminar(sucursal)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+
+<router-outlet></router-outlet> 

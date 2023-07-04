@@ -1,0 +1,70 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-1 mt-5">
+      <button
+        style="margin-left: 10px"
+        class="btn btn-primary"
+        type="button"
+        routerLink="/Area"
+      >
+        Cerrar Lista
+      </button>
+    </div>
+    <div class="backgorund"></div>
+    <div class="col-6" *ngIf="!mostrarActualizar">
+      <app-Area-detail (emitChange)="restableceRegistro()"></app-Area-detail>
+    </div>
+    <div class="col-6" *ngIf="mostrarActualizar">
+      <app-Area-detail
+        [id]="id"
+        (emitChange)="restableceRegistro()"
+      ></app-Area-detail>
+    </div>
+    <div class="col-6 mt-5">
+      <div class="card">
+        
+        <div class="card-header">Tabla de Area</div>
+        <div class="card-body" style="overflow-x: auto">
+          <div class="card-body">
+            <table class="table table-white table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Area</th>
+                  <th scope="col">Descripcion</th>
+
+                  <th scope="col">Actualizar</th>
+                  <th scope="col">Borrar</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let area of areaAll; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ area.area }}</td>
+                  <td>{{ area.descripcion }}</td>
+                  <td>
+                    <button
+                      (click)="actualizar(area.area)"
+                      class="btn btn-primary"
+                    >
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="eliminar(area)" class="btn btn-danger">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <router-outlet></router-outlet>
+

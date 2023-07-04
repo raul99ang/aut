@@ -1,0 +1,23 @@
+.valoracion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .caritas {
+    font-size: 2rem;
+  }
+  
+  .carita {
+    margin: 0 0.5rem;
+    cursor: pointer;
+  }
+  
+  .carita.selected {
+    color: orange;
+  }
+  
+  .valoracion-texto {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }

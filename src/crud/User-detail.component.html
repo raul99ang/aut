@@ -1,0 +1,240 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+    <button type="button" class="btn btn-primary" routerLink="/registro">
+      <i class="fas fa-arrow-left" style='font-size:24px'></i>
+    </button>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="card mt-5">
+      <div class="card-info">
+        <div class="card-header text-white">
+          {{ this.isNew ? "Registrar Usuario" : "Actualizar Usuario" }}
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="submitUser(forma)" #forma="ngForm" class="row g-3">
+            <div class="col-md-6">
+              <label for="label-id" class="form-label text-white">Id:</label>
+              <input
+                #inputid="ngModel"
+                type="text"
+                name="id"
+                [ngClass]="{
+                  'is-invalid': inputid.touched && inputid.hasError('required')
+                }"
+                [(ngModel)]="user.id"
+                class="form-control"
+                id="id"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-nombreusuario" class="form-label text-white"
+                >Nombre Usuario:</label
+              >
+              <input
+                #inputnombreusuario="ngModel"
+                type="text"
+                name="nombreusuario"
+                [ngClass]="{
+                  'is-invalid':
+                    inputnombreusuario.touched &&
+                    inputnombreusuario.hasError('required')
+                }"
+                [(ngModel)]="user.nombreusuario"
+                class="form-control"
+                id="nombreusuario"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-nombre" class="form-label text-white"
+                >Nombre:</label
+              >
+              <input
+                #inputnombre="ngModel"
+                type="text"
+                name="nombre"
+                [ngClass]="{
+                  'is-invalid':
+                    inputnombre.touched && inputnombre.hasError('required')
+                }"
+                [(ngModel)]="user.nombre"
+                class="form-control"
+                id="nombre"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-apellidopaterno" class="form-label text-white"
+                >Apellido Paterno:</label
+              >
+              <input
+                #inputapellidopaterno="ngModel"
+                type="text"
+                name="apellidopaterno"
+                [ngClass]="{
+                  'is-invalid':
+                    inputapellidopaterno.touched &&
+                    inputapellidopaterno.hasError('required')
+                }"
+                [(ngModel)]="user.apellidopaterno"
+                class="form-control"
+                id="apellidopaterno"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-apellidomaterno" class="form-label text-white"
+                >Apellido Materno:</label
+              >
+              <input
+                #inputapellidomaterno="ngModel"
+                type="text"
+                name="apellidomaterno"
+                [ngClass]="{
+                  'is-invalid':
+                    inputapellidomaterno.touched &&
+                    inputapellidomaterno.hasError('required')
+                }"
+                [(ngModel)]="user.apellidomaterno"
+                class="form-control"
+                id="apellidomaterno"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-contrasenia" class="form-label text-white"
+                >Contraseña:</label
+              >
+              <input
+                #inputcontrasenia="ngModel"
+                type="text"
+                name="contrasenia"
+                [ngClass]="{
+                  'is-invalid':
+                    inputcontrasenia.touched &&
+                    inputcontrasenia.hasError('required')
+                }"
+                [(ngModel)]="user.contrasenia"
+                class="form-control"
+                id="contrasenia"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-perfilid" class="form-label text-white"
+                >Perfil id:</label
+              >
+              <input
+                #inputperfilid="ngModel"
+                type="text"
+                name="perfilid"
+                [ngClass]="{
+                  'is-invalid':
+                    inputperfilid.touched && inputperfilid.hasError('required')
+                }"
+                [(ngModel)]="user.perfilid"
+                class="form-control"
+                id="perfilid"
+                value=""
+                required
+              />
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-md-6">
+              <label for="label-estatusid" class="form-label text-white"
+                >Estatus id:</label
+              >
+              <input
+                #inputestatusid="ngModel"
+                type="text"
+                name="estatusid"
+                [ngClass]="{
+                  'is-invalid':
+                    inputestatusid.touched &&
+                    inputestatusid.hasError('required')
+                }"
+                [(ngModel)]="user.estatusid"
+                class="form-control"
+                id="estatusid"
+                value=""
+                required
+              />
+              <div class="col-md-6">
+                <label for="label-role" class="form-label text-white"
+                  >Role:</label
+                >
+                <input
+                  #inputrole="ngModel"
+                  type="text"
+                  name="role"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputrole.touched &&
+                      inputrole.hasError('required')
+                  }"
+                  [(ngModel)]="user.role"
+                  class="form-control"
+                  id="role"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="invalid-feedback">Field required</div>
+            </div>
+            <div class="col-12 text-center">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="forma.invalid"
+              >
+                {{ this.isNew ? "Register" : "Update" }}
+              </button>
+              <button
+                style="margin-left: 10px"
+                class="btn btn-danger"
+                type="button"
+                (click)="limpiarForm(forma)"
+              >
+                Clear
+              </button>
+              <button
+                *ngIf="!this.isNew"
+                style="margin-left: 10px"
+                class="btn btn-danger"
+                type="button"
+                (click)="emitChange.emit()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

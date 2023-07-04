@@ -1,0 +1,82 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-1 mt-5">
+      <button
+        style="margin-left: 10px"
+        class="btn btn-primary"
+        type="button"
+        routerLink="/Formu"
+      >
+        Cerrar Lista
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="backgorund"></div>
+    <div class="col-6" *ngIf="!mostrarActualizar">
+      <app-Formu-detail (emitChange)="restableceRegistro()"></app-Formu-detail>
+    </div>
+    <div class="col-6" *ngIf="mostrarActualizar">
+      <app-Formu-detail
+        [id]="id"
+        (emitChange)="restableceRegistro()"
+      ></app-Formu-detail>
+    </div>
+    <div class="col-6 mt-5">
+      <div class="card">
+        <div class="card-header">Tabla de Formularios</div>
+        <div class="card-body" style="overflow-x: auto">
+          <div class="card-body">
+            <table class="table table-white table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Formulario</th>
+                  <th scope="col">Id</th>
+                  <th scope="col">Calidad</th>
+                  <th scope="col">Tiempo</th>
+                  <th scope="col">Tecnica</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Constancia</th>
+
+                  <th scope="col">Actualizar</th>
+                  <th scope="col">Borrar</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let formu of formuAll; index as i">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ formu.num_formulario }}</td>
+                  <td>{{ formu.id }}</td>
+                  <td>{{ formu.calidad }}</td>
+                  <td>{{ formu.tiempo }}</td>
+                  <td>{{ formu.tecnica }}</td>
+                  <td>{{ formu.servicio }}</td>
+                  <td>{{ formu.constancia }}</td>
+                  <td>
+                    <button
+                      (click)="actualizar(formu.num_formulario)"
+                      class="btn btn-primary"
+                    >
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="eliminar(formu)" class="btn btn-danger">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+<router-outlet></router-outlet>

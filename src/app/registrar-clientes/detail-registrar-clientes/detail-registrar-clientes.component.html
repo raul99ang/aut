@@ -1,0 +1,114 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="btn3">
+    <button type="button" class="btn btn-success" routerLink="/clientes">
+      <i class="fas fa-arrow-left" style='font-size:24px'></i>
+    </button>
+  </div>
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top"
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+</nav>
+<div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+  <div style="border: 1px solid rgb(255, 255, 255); padding: 1px; backdrop-filter: blur(10px);">
+<div class="container" style="color: aliceblue;">
+  <h1>{{ editMode ? 'Editar Clientes' : 'Agregar Clientes' }}</h1>
+
+  <!-- Formulario para agregar/editar clientes -->
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" formControlName="nombre" class="form-control" id="nombre">
+    </div>
+    <div class="form-group">
+      <label for="domicilio">Domicilio:</label>
+      <input type="text" formControlName="domicilio" class="form-control" id="domicilio">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="prepago">Prepago :</label>
+      <input type="checkbox" formControlName="prepago" id="prepago">
+    </div>
+    <!--<div class="form-group">
+      <label for="credito">Crédito:</label>
+      <input type="checkbox" formControlName="credito"id="credito">
+    </div>-->
+    <div *ngIf="clienteForm.get('prepago')?.value">
+      <h2>Información de Prepago</h2>
+      <div class="form-group">
+        <label for="codigo">Código de Prepago:</label>
+        <input type="text" formControlName="codigo" class="form-control" id="codigo">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="credito">Crédito:</label>
+      <input type="checkbox" formControlName="credito"id="credito">
+    </div>    
+    <div *ngIf="clienteForm.get('credito')?.value">
+      <h2>Información de Tarjeta de Crédito</h2>
+      <div class="form-group">
+        <label for="numero">Número de Tarjeta:</label>
+        <input type="text" formControlName="numero" class="form-control" id="numero">
+      </div>
+      <div class="form-group">
+        <label for="fechaExpiracion">Fecha de Expiración:</label>
+        <input type="text" formControlName="fechaExpiracion" class="form-control" id="fechaExpiracion">
+      </div>
+      <div class="form-group">
+        <label for="codigoSeguridad">Código de Seguridad:</label>
+        <input type="text" formControlName="codigoSeguridad" class="form-control" id="codigoSeguridad">
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">{{ editMode ? 'Editar' : 'Agregar' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+  </form>
+</div>
+  </div>
+</div>
+
+  <!-- Tabla de clientes -->
+  <div style="display: flex; justify-content: center; align-items: center; height: 60vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+      <div style="overflow-y: scroll; max-height: 300px;">
+        <input type="text" [(ngModel)]="terminoBusqueda" placeholder="Buscar cliente...">
+  <table class="table" style="color: aliceblue;">
+    
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Domicilio</th>
+        <th>Email</th>
+        <th>Prepago</th>
+        <th>Crédito</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes | filter: terminoBusqueda">
+        <td>{{ cliente.idCliente }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.domicilio }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.prepago ? 'Sí' : 'No' }}</td>
+        <td>{{ cliente.credito ? 'Sí' : 'No' }}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="onEdit(cliente)">Editar</button>
+          <button type="button" class="btn btn-danger" (click)="onDelete(cliente)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+  </div>

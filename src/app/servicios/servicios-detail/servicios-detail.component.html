@@ -1,0 +1,136 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register Servicios" : "Update Servicios"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitServicios(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-id_servicios"  class="form-label">id_servicios:</label>
+<input #inputid_servicios="ngModel"  type="text" name="id_servicios" [ngClass]="{'is-invalid': inputid_servicios.touched && inputid_servicios.hasError('required') }" [(ngModel)]="servicios.id_servicios" class="form-control" id="id_servicios" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-codigo_postal_cliente"  class="form-label">codigo_postal_cliente:</label>
+<input #inputcodigo_postal_cliente="ngModel"  type="text" name="codigo_postal_cliente" [ngClass]="{'is-invalid': inputcodigo_postal_cliente.touched && inputcodigo_postal_cliente.hasError('required') }" [(ngModel)]="servicios.codigo_postal_cliente" class="form-control" id="codigo_postal_cliente" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-id_servicio"  class="form-label">id_servicio:</label>
+<input #inputid_servicio="ngModel"  type="text" name="id_servicio" [ngClass]="{'is-invalid': inputid_servicio.touched && inputid_servicio.hasError('required') }" [(ngModel)]="servicios.id_servicio" class="form-control" id="id_servicio" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-descripcion"  class="form-label">descripcion:</label>
+<input #inputdescripcion="ngModel"  type="text" name="descripcion" [ngClass]="{'is-invalid': inputdescripcion.touched && inputdescripcion.hasError('required') }" [(ngModel)]="servicios.descripcion" class="form-control" id="descripcion" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-adicionales"  class="form-label">adicionales:</label>
+<input #inputadicionales="ngModel"  type="text" name="adicionales" [ngClass]="{'is-invalid': inputadicionales.touched && inputadicionales.hasError('required') }" [(ngModel)]="servicios.adicionales" class="form-control" id="adicionales" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-tipo_vehiculo"  class="form-label">tipo_vehiculo:</label>
+<input #inputtipo_vehiculo="ngModel"  type="text" name="tipo_vehiculo" [ngClass]="{'is-invalid': inputtipo_vehiculo.touched && inputtipo_vehiculo.hasError('required') }" [(ngModel)]="servicios.tipo_vehiculo" class="form-control" id="tipo_vehiculo" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-detallados"  class="form-label">detallados:</label>
+<input #inputdetallados="ngModel"  type="text" name="detallados" [ngClass]="{'is-invalid': inputdetallados.touched && inputdetallados.hasError('required') }" [(ngModel)]="servicios.detallados" class="form-control" id="detallados" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-QRCode"  class="form-label">QRCode:</label>
+<input #inputqRCode="ngModel"  type="text" name="QRCode" [ngClass]="{'is-invalid': inputqRCode.touched && inputqRCode.hasError('required') }" [(ngModel)]="servicios.qRCode" class="form-control" id="QRCode" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-metodo_pago"  class="form-label">metodo_pago:</label>
+<input #inputmetodo_pago="ngModel"  type="text" name="metodo_pago" [ngClass]="{'is-invalid': inputmetodo_pago.touched && inputmetodo_pago.hasError('required') }" [(ngModel)]="servicios.metodo_pago" class="form-control" id="metodo_pago" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-costo_sin_iva"  class="form-label">costo_sin_iva:</label>
+<input #inputcosto_sin_iva="ngModel"  type="text" name="costo_sin_iva" [ngClass]="{'is-invalid': inputcosto_sin_iva.touched && inputcosto_sin_iva.hasError('required') }" [(ngModel)]="servicios.costo_sin_iva" class="form-control" id="costo_sin_iva" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-costo_con_iva"  class="form-label">costo_con_iva:</label>
+<input #inputcosto_con_iva="ngModel"  type="text" name="costo_con_iva" [ngClass]="{'is-invalid': inputcosto_con_iva.touched && inputcosto_con_iva.hasError('required') }" [(ngModel)]="servicios.costo_con_iva" class="form-control" id="costo_con_iva" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-precio"  class="form-label">precio:</label>
+<input #inputprecio="ngModel"  type="text" name="precio" [ngClass]="{'is-invalid': inputprecio.touched && inputprecio.hasError('required') }" [(ngModel)]="servicios.precio" class="form-control" id="precio" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-total"  class="form-label">total:</label>
+<input #inputtotal="ngModel"  type="text" name="total" [ngClass]="{'is-invalid': inputtotal.touched && inputtotal.hasError('required') }" [(ngModel)]="servicios.total" class="form-control" id="total" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-fecha_registro"  class="form-label">fecha_registro:</label>
+<input #inputfecha_registro="ngModel"  type="date" name="fecha_registro" [ngClass]="{'is-invalid': inputfecha_registro.touched && inputfecha_registro.hasError('required') }" [(ngModel)]="servicios.fecha_registro" class="form-control" id="fecha_registro" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-sucursal"  class="form-label">sucursal:</label>
+<input #inputsucursal="ngModel"  type="text" name="sucursal" [ngClass]="{'is-invalid': inputsucursal.touched && inputsucursal.hasError('required') }" [(ngModel)]="servicios.sucursal" class="form-control" id="sucursal" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-id"  class="form-label">id:</label>
+<input #inputid="ngModel"  type="text" name="id" [ngClass]="{'is-invalid': inputid.touched && inputid.hasError('required') }" [(ngModel)]="servicios.id" class="form-control" id="id" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+            <button
+              style="margin-left: 10px"
+              class="btn btn-primary"
+              type="button"
+              routerLink="/servicios"
+            >
+              Lista
+            </button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 
+

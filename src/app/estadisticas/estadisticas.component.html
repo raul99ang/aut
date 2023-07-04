@@ -1,0 +1,231 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div class="btn3">
+      <button type="button" class="btn btn-success" routerLink="/nav">
+        <i class="fas fa-arrow-left" style='font-size:24px'></i>
+      </button>
+    </div>
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top "
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+    </nav>
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+  "
+>
+  <div
+    style="
+      border: 1px solid rgb(255, 255, 255);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    "
+  >
+  <h1 style="color: aliceblue;">Detalles de Servicios</h1>
+    <div style="overflow-y: scroll; max-height: 300px">
+      <table class="table" style="color: aliceblue">
+        <tr>
+          <td>Id</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>¿Se Cobra?</td>
+          <td>¿Promoción?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+        </tr>
+        <tbody *ngFor="let servicio of serviciosModel">
+          <tr>
+            <td>{{ servicio.idServicio }}</td>
+            <td>{{ servicio.descripcion }}</td>
+            <td>{{'$'+servicio.precio }}</td>
+            <td>{{ servicio.seCobra? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.promocion? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.adicional? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.detallado? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.cobraIVA? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.aplicaPrep? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.esCombo? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.numLavadas }}</td>
+            <td>{{ servicio.aplica6taGrat? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!---->
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+  "
+>
+  <div
+    style="
+      border: 1px solid rgb(255, 255, 255);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    "
+  >
+  <h1 style="color: aliceblue;">Detalles de Clientes</h1>
+    <div style="overflow-y: scroll; max-height: 300px">
+      <table class="table" style="color: aliceblue">
+        <tr>
+          <td>Id</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>¿Se Cobra?</td>
+          <td>¿Promoción?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+        </tr>
+        <tbody *ngFor="let servicio of serviciosModel">
+          <tr>
+            <td>{{ servicio.idServicio }}</td>
+            <td>{{ servicio.descripcion }}</td>
+            <td>{{'$'+servicio.precio }}</td>
+            <td>{{ servicio.seCobra? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.promocion? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.adicional? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.detallado? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.cobraIVA? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.aplicaPrep? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.esCombo? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.numLavadas }}</td>
+            <td>{{ servicio.aplica6taGrat? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!---->
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+  "
+>
+  <div
+    style="
+      border: 1px solid rgb(255, 255, 255);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    "
+  >
+  <h1 style="color: aliceblue;">Detalles de Usuarios</h1>
+    <div style="overflow-y: scroll; max-height: 300px">
+      <table class="table" style="color: aliceblue">
+        <tr>
+          <td>Id</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>¿Se Cobra?</td>
+          <td>¿Promoción?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+        </tr>
+        <tbody *ngFor="let servicio of serviciosModel">
+          <tr>
+            <td>{{ servicio.idServicio }}</td>
+            <td>{{ servicio.descripcion }}</td>
+            <td>{{'$'+servicio.precio }}</td>
+            <td>{{ servicio.seCobra? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.promocion? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.adicional? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.detallado? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.cobraIVA? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.aplicaPrep? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.esCombo? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.numLavadas }}</td>
+            <td>{{ servicio.aplica6taGrat? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!---->
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+  "
+>
+  <div
+    style="
+      border: 1px solid rgb(255, 255, 255);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    "
+  >
+  <h1 style="color: aliceblue;">Detalles de Empleados</h1>
+    <div style="overflow-y: scroll; max-height: 300px">
+      <table class="table" style="color: aliceblue">
+        <tr>
+          <td>Id</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>¿Se Cobra?</td>
+          <td>¿Promoción?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+          <td>¿Adicional?</td>
+        </tr>
+        <tbody *ngFor="let servicio of serviciosModel">
+          <tr>
+            <td>{{ servicio.idServicio }}</td>
+            <td>{{ servicio.descripcion }}</td>
+            <td>{{'$'+servicio.precio }}</td>
+            <td>{{ servicio.seCobra? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.promocion? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.adicional? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.detallado? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.cobraIVA? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.aplicaPrep? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.esCombo? 'Sí' : 'No' }}</td>
+            <td>{{ servicio.numLavadas }}</td>
+            <td>{{ servicio.aplica6taGrat? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,191 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+  <button type="button" class="btn btn-primary" routerLink="/registro">
+    <i class="fas fa-arrow-left" style='font-size:24px'></i>
+  </button>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="card-info">
+          <div class="card-header text-white">
+            {{ this.isNew ? "Registrar Formulario" : "Actualizar Formulario" }}
+          </div>
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitFormu(forma)"
+              #forma="ngForm"
+              class="row g-3"
+            >
+              <div class="col-md-6">
+                <label for="label-num_formulario" class="form-label text-white">Formulario:</label>
+                <input
+                  #inputnum_formulario="ngModel"
+                  type="text"
+                  name="num_formulario"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputnum_formulario.touched && inputnum_formulario.hasError('required')
+                  }"
+                  [(ngModel)]="formu.num_formulario"
+                  class="form-control"
+                  id="num_formulario"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-id" class="form-label text-white">Id:</label>
+                <input
+                  #inputid="ngModel"
+                  type="text"
+                  name="id"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputid.touched && inputid.hasError('required')
+                  }"
+                  [(ngModel)]="formu.id"
+                  class="form-control"
+                  id="id"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label text-white" for="flexSwitchCheckDefault"
+                    >Calidad</label
+                  >
+                  <input
+                    #inputcalidad="ngModel"
+                    name="calidad"
+                    [(ngModel)]="formu.calidad"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="calidad"
+                  />
+                </div>
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label text-white" for="flexSwitchCheckDefault"
+                    >Tiempo</label
+                  >
+                  <input
+                    #inputtiempo="ngModel"
+                    name="tiempo"
+                    [(ngModel)]="formu.tiempo"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="tiempo"
+                  />
+                </div>
+                <div class="invalid-feedback text-white">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label text-white" for="flexSwitchCheckDefault"
+                    >Tecnica</label
+                  >
+                  <input
+                    #inputtecnica="ngModel"
+                    name="tecnica"
+                    [(ngModel)]="formu.tecnica"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="tecnica"
+                  />
+                </div>
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label text-white" for="flexSwitchCheckDefault"
+                    >Servicio</label
+                  >
+                  <input
+                    #inputservicio="ngModel"
+                    name="servicio"
+                    [(ngModel)]="formu.servicio"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="servicio"
+                  />
+                </div>
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label text-white" for="flexSwitchCheckDefault"
+                    >Constancia</label
+                  >
+                  <input
+                    #inputconstancia="ngModel"
+                    name="constancia"
+                    [(ngModel)]="formu.constancia"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="constancia"
+                  />
+                </div>
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-12 text-center">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="forma.invalid"
+                >
+                  {{ this.isNew ? "Registrar" : "Actualizar" }}
+                </button>
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="limpiarForm(forma)"
+                >
+                  Limpiar
+                </button>
+                <button
+                  *ngIf="!this.isNew"
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="emitChange.emit()"
+                >
+                  Cancelar
+                </button>
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-primary"
+                  type="button"
+                  routerLink="/for_det"
+                >
+                  Lista
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+

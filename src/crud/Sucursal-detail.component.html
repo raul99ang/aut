@@ -1,0 +1,117 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+  <button type="button" class="btn btn-primary" routerLink="/registro">
+    <i class="fas fa-arrow-left" style='font-size:24px'></i>
+  </button>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <div class="card mt-5">
+          <div class="card-info">
+    <div class="card-header text-white">
+      {{ this.isNew ? "Registrar Sucursal" : "Actualizar Sucursal" }}
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="submitSucursal(forma)" #forma="ngForm" class="row g-3">
+        <div class="col-md-6">
+          <label for="label-sucursal" class="form-label text-white">Sucursal:</label>
+          <input
+            #inputsucursal="ngModel"
+            type="text"
+            name="sucursal"
+            [ngClass]="{
+              'is-invalid':
+                inputsucursal.touched && inputsucursal.hasError('required')
+            }"
+            [(ngModel)]="sucursal.sucursal"
+            class="form-control"
+            id="sucursal"
+            value=""
+            required
+          />
+          <div class="invalid-feedback text-white">Campo Requerido</div>
+        </div>
+        <div class="col-md-6">
+          <label for="label-direccion" class="form-label text-white">Dirección:</label>
+          <input
+            #inputdireccion="ngModel"
+            type="text"
+            name="direccion"
+            [ngClass]="{
+              'is-invalid':
+                inputdireccion.touched && inputdireccion.hasError('required')
+            }"
+            [(ngModel)]="sucursal.direccion"
+            class="form-control"
+            id="direccion"
+            value=""
+            required
+          />
+          <div class="invalid-feedback text-white">Campo Requerido</div>
+        </div>
+        <div class="col-md-6">
+          <label for="label-telefono" class="form-label text-white">Telefono:</label>
+          <input
+            #inputtelefono="ngModel"
+            type="text"
+            name="telefono"
+            [ngClass]="{
+              'is-invalid':
+                inputtelefono.touched && inputtelefono.hasError('required')
+            }"
+            [(ngModel)]="sucursal.telefono"
+            class="form-control"
+            id="telefono"
+            value=""
+            required
+          />
+          <div class="invalid-feedback text-white">Field required</div>
+        </div>
+        <div class="col-12 text-center">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="forma.invalid"
+          >
+            {{ this.isNew ? "Registrar" : "Actualizar" }}
+          </button>
+          <button
+            style="margin-left: 10px"
+            class="btn btn-danger"
+            type="button"
+            (click)="limpiarForm(forma)"
+          >
+            Limpiar
+          </button>
+          <button
+            *ngIf="!this.isNew"
+            style="margin-left: 10px"
+            class="btn btn-danger"
+            type="button"
+            (click)="emitChange.emit()"
+          >
+            Cancelar
+          </button>
+          <button
+            style="margin-left: 10px"
+            class="btn btn-primary"
+            type="button"
+            routerLink="/sucursal"
+          >
+            Lista
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

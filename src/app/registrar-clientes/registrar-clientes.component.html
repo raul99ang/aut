@@ -1,0 +1,85 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top"
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+</nav>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+  <div style="border: 1px solid rgb(255, 255, 255); padding: 1px; backdrop-filter: blur(10px);">
+<div class="container" style="color: aliceblue;">
+  <h1>Agregar Clientes</h1>
+
+  <!-- Formulario para agregar/editar clientes -->
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" formControlName="nombre" class="form-control" id="nombre">
+    </div>
+    <div class="form-group">
+      <label for="domicilio">Domicilio:</label>
+      <input type="text" formControlName="domicilio" class="form-control" id="domicilio">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="prepago">Prepago :</label>
+      <input type="checkbox" formControlName="prepago" id="prepago">
+    </div>
+    <div class="form-group">
+      <label for="credito">Crédito :</label>
+      <input type="checkbox" formControlName="credito" id="credito">
+    </div>    
+    <button type="submit" class="btn btn-primary">{{ editMode ? 'Editar' : 'Agregar' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+  </form>
+</div>
+  </div>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; height: 25vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <input type="text" [(ngModel)]="terminoBusqueda" placeholder="Buscar cliente...">
+    </div>
+  </div>
+    <!-- Tabla de clientes -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 25vh;">
+      <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+        <div style="overflow-y: scroll; max-height: 300px;">
+    <table class="table" style="color: aliceblue;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Domicilio</th>
+          <th>Email</th>
+          <th>Prepago</th>
+          <th>Crédito</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes | filter: terminoBusqueda">
+          <td>{{ cliente.idCliente }}</td>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.domicilio }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.prepago ? 'Sí' : 'No' }}</td>
+          <td>{{ cliente.credito ? 'Sí' : 'No' }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="onEdit(cliente)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="onDelete(cliente)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+    </div>

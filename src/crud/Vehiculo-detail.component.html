@@ -1,0 +1,91 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+  <button type="button" class="btn btn-primary" routerLink="/registro">
+    <i class="fas fa-arrow-left" style='font-size:24px'></i>
+  </button>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="card-info">
+          <div class="card-header text-white">
+            {{ this.isNew ? "Registrar Vehiculo" : "Actualizar Vehiculo" }}
+          </div>
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitVehiculo(forma)"
+              #forma="ngForm"
+              class="row g-3"
+            >
+              <div class="col-md-6">
+                <label for="label-tipo_veiculo" class="form-label text-white"
+                  >Tipo de vehiculo:</label
+                >
+                <input
+                  #inputtipo_vehiculo="ngModel"
+                  type="text"
+                  name="tipo_vehiculo"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputtipo_vehiculo.touched &&
+                      inputtipo_vehiculo.hasError('required')
+                  }"
+                  [(ngModel)]="vehiculo.tipo_vehiculo"
+                  class="form-control"
+                  id="tipo_vehiculo"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback text-white">Campo Requerido</div>
+              </div>
+              <div class="col-12 text-center">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="forma.invalid"
+                >
+                  {{ this.isNew ? "Registrar" : "Actualizar" }}
+                </button>
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="limpiarForm(forma)"
+                >
+                  Limpiar
+                </button>
+                <button
+                  *ngIf="!this.isNew"
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="emitChange.emit()"
+                >
+                  Cancelar
+                </button>
+                <button
+                style="margin-left: 10px"
+                class="btn btn-primary"
+                type="button"
+                routerLink="/vehiculo"
+              >
+                Lista
+              </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+

@@ -1,0 +1,126 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="btn3">
+    <button type="button" class="btn btn-success" routerLink="/nav">
+      <i class="fas fa-arrow-left" style='font-size:24px'></i>
+    </button>
+  </div>
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top "
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+  <button class="btn btn-success" routerLink="/detail_registrar_clientes"> Administrar Clientes
+  </button>
+  </nav>
+  <div style="display: flex; justify-content: center; align-items: center; height: 43vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <form [formGroup]="clienteForm" style="color: aliceblue;">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" class="form-control" formControlName="nombre" readonly>
+    </div>
+    <div class="form-group">
+      <label for="domicilio">Domicilio</label>
+      <input type="text" id="domicilio" class="form-control" formControlName="domicilio" readonly>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" formControlName="email" readonly>
+    </div>
+    <div class="form-group">
+      <label for="prepago">Prepago</label>
+      <input type="checkbox" id="prepago" formControlName="prepago">
+    </div>
+    <div class="form-group">
+      <label for="credito">Crédito</label>
+      <input type="checkbox" id="credito" formControlName="credito">
+    </div>
+    <div class="form-group" *ngIf="clienteForm.get('credito')?.value">
+      <label for="abonoCredito">Abono crédito</label>
+      <input type="number" id="abonoCredito" class="form-control" formControlName="abonoCredito">
+      <h3>Historial de pagos de {{ selectedCliente?.nombre }}</h3>
+      <div style="overflow-y: scroll; max-height: 150px;">
+      <table class="table" style="color: aliceblue;">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pago of pagosCliente">
+            <td>{{ pago.fecha | date}}</td>
+            <td>{{ pago.importe }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="form-group" *ngIf="clienteForm.get('prepago')?.value">
+      <label for="abonoPrepago">Abono prepago</label>
+      <input type="number" id="abonoPrepago" class="form-control" formControlName="abonoPrepago">
+      <h3>Historial de pagos de {{ selectedCliente?.nombre }}</h3>
+      <div style="overflow-y: scroll; max-height: 150px;">
+      <table class="table" style="color: aliceblue;">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Vendidas</th>
+            <th>Cortesia</th>
+            <th>Utilizadas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pago of pagosClientePrepago">
+            <td>{{ pago.fecha | date}}</td>
+            <td>{{ pago.vendidas }}</td>
+            <td>{{pago.cortesia}}</td>
+            <td>{{pago.utilizadas}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="registrarAbono(clienteForm.get('credito')?.value ? 'credito' : 'prepago')">Registrar Abono</button>
+  </form>
+    </div>
+  </div>
+  
+  <div style="display: flex; justify-content: center; align-items: center; height: 55vh;">
+    <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+      <input type="text" [(ngModel)]="terminoBusqueda" placeholder="Buscar cliente...">
+  <div style="overflow-y: scroll; max-height: 300px;">
+<table class="table" style="color: aliceblue;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Domicilio</th>
+      <th>Correo</th>
+      <th>Dias</th>
+      <th>Prepago</th>
+      <th>Credito</th>
+      <th>Abonar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes | filter: terminoBusqueda">
+      <td>{{ cliente.idCliente }}</td>
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.domicilio}}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ '5' }}</td>
+      <td>{{ cliente.prepago? 'Sí' : 'No'}}</td>
+      <td>{{ cliente.credito? 'Sí' : 'No'}}</td>
+      <td> <button type="button" class="btn btn-success" (click)="onEdit(cliente)">Abonar</button></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+  </div>

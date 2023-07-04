@@ -1,0 +1,117 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+    <div class="container">
+      <img
+        src="../assets/img/2x3-carwahs-logo-blanco.png"
+        width="auto"
+        height="auto"
+        class="d-inline-block align-top "
+        alt=""
+        routerLink="/Landing"
+      />
+    </div>
+    <div>
+      <button routerLink="/empleados-detail">Administrar Epleados</button>
+    </div>
+</nav>
+
+<div style="flex-basis: 45%; border: 1px solid rgb(255, 255, 255); padding: 50px; backdrop-filter: blur(10px);">
+  <input type="text" [(ngModel)]="terminoBusqueda" placeholder="Buscar empleado...">
+    <div class="table-responsive mx-auto d-flex justify-content-center" style="max-width: 10000px;">
+      <div style="overflow-y: scroll; max-height: 300px;">
+      <table class="table "style="color:rgb(255, 255, 255); ">
+        <thead>
+          <tr>
+            <th>ID</th>
+                  <th>Fecha</th>
+                  <th>ID Tipo Empleado</th>
+                  <th>ID Empleado</th>
+                  <th>Rango de Pago</th>
+                  <th>Total de Días</th>
+                  <th>Importe</th>
+                  <th>Observaciones</th>
+                  <th>ID Sucursal</th>
+            
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let nomina of nominaList | filter: terminoBusqueda">
+            <td>{{ nomina.idNomina }}</td>
+                  <td>{{ nomina.fecha | date: 'yyyy-MM-dd' }}</td>
+                  <td>{{ nomina.idTipoEmpleado }}</td> <!--Agregar el tipo de empleado como el otro componente-->
+                  <td>{{ nomina.idEmpleado }}</td>
+                  <td>{{ nomina.rangoPago }}</td>
+                  <td>{{ nomina.totalDias }}</td>
+                  <td>{{ nomina.importe }}</td>
+                  <td>{{ nomina.obs }}</td>
+                  <td>{{ nomina.id_Sucursal? 'Matriz':'Campanario' }}</td>
+                  <!--<td>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="editNomina(nomina)">Editar</button>
+                  </td>-->
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteNomina(nomina.idNomina)" disabled>Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-4">
+            <button type="button" class="btn btn-success" (click)="showAddModal()">Agregar Nómina</button>
+        </div>
+    </div>
+</div>
+  
+  <!-- Modal para agregar/editar nómina -->
+  <div class="modal fade" #modalNomina tabindex="-1" role="dialog" aria-labelledby="modalNominaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalNominaTitle">{{ modalTitle }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="nominaForm">
+            <div class="form-group">
+              <label for="fecha">Fecha:</label>
+              <input type="date" class="form-control" formControlName="fecha" id="fecha">
+            </div>
+            <div class="form-group">
+              <label for="tipoEmpleado">Tipo de empleado:</label>
+              <select class="form" formControlName="tipoEmpleado" id="tipoEmpleado">
+                <option *ngFor="let tipoEmpleado of tiposEmpleado" [value]="tipoEmpleado.tipoEmpleado">{{ tipoEmpleado.tipoEmpleado }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="empleado">Empleado:</label>
+              <select class="form" formControlName="empleado" id="empleado">
+                <option *ngFor="let empleado of empleados" [value]="empleado.idEmpleado">{{ empleado.empleado }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rangoPago">Rango de pago:</label>
+              <input type="date" class="form-control" formControlName="rangoPago" id="rangoPago">
+            </div>
+            <div class="form-group">
+              <label for="totalDias">Total de días:</label>
+              <input type="number" class="form-control" formControlName="totalDias" id="totalDias">
+            </div>
+            <div class="form-group">
+              <label for="importe">Importe:</label>
+              <input type="number" class="form-control" formControlName="importe" id="importe">
+            </div>
+            <div class="form-group">
+              <label for="obs">Observaciones:</label>
+              <textarea class="form-control" formControlName="obs" id="obs"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

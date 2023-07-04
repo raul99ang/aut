@@ -1,0 +1,72 @@
+<nav class="navbar" style="border: 0px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(10px);">
+  <div class="container">
+    <img
+      src="../assets/img/2x3-carwahs-logo-blanco.png"
+      width="auto"
+      height="auto"
+      class="d-inline-block align-top "
+      alt=""
+      routerLink="/Landing"
+    />
+  </div>
+  <button class="btn btn-success" routerLink="/landing-servicios">Administrar Servicios
+  </button>
+  </nav>
+
+
+        <div style="display: flex; justify-content: center; align-items: center; height: 100 vh;">
+          <div style="border: 1px solid rgb(255, 255, 255); padding: 20px; backdrop-filter: blur(15px);">
+<div class="card-header" style="color: aliceblue;">Servicios</div><div class="card-body" style="overflow-x: auto;"><div class="card-body">
+  <div style="overflow-y: scroll; max-height: 300px;">
+    <table class="table" style="color: aliceblue;">
+        <thead >
+          <tr>
+<th scope="col">#</th>
+<th scope="col">Id de servicio</th>
+<th scope="col">Descripción</th>
+<th scope="col">Precio</th>
+<th scope="col">¿Se Cobra?</th>
+<th scope="col">¿Promoción?</th>
+<th scope="col">¿Principal?</th>
+<th scope="col">¿Adicional?</th>
+<th scope="col">¿Detallado?</th>
+<th scope="col">¿Cobra IVA?</th>
+<th scope="col">¿Prepago?</th>
+<th scope="col">¿Combo?</th>
+<th scope="col">Numero Lavados</th>
+<th scope="col">¿Sexta Gratis?</th>
+
+<!--<th scope="col">Actualizar</th>-->
+      <!--<th scope="col">Borrar</th>-->
+</tr>
+        </thead>
+<tbody class="table-group-divider"  style="color: aliceblue;">
+          <tr *ngFor="let servicio of tbl_Servicio; index as i">
+
+            <th scope="row">{{i+1}}</th>
+<td>{{servicio.idServicio}}</td>
+<td>{{servicio.descripcion}}</td>
+<td>{{servicio.precio}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.seCobra" [checked]="servicio.seCobra" disabled>{{servicio.seCobra? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.promocion" [checked]="servicio.promocion" disabled>{{servicio.promocion? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.principal" [checked]="servicio.principal" disabled>{{servicio.principal? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.adicional" [checked]="servicio.adicional" disabled>{{servicio.adicional? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.detallado" [checked]="servicio.detallado" disabled>{{servicio.detallado? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.cobraIVA" [checked]="servicio.cobraIVA" disabled>{{servicio.cobraIVA? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.aplicaPrep" [checked]="servicio.aplicaPrep" disabled>{{servicio.aplicaPrep? 'Sí' : 'No'}}</td>
+<td><input type="checkbox" [(ngModel)]="servicio.esCombo" [checked]="servicio.esCombo" disabled>{{servicio.esCombo? 'Sí' : 'No'}}</td>
+<td>{{servicio.numLavadas}}</td>
+<td><input  type="checkbox" [(ngModel)]="servicio.aplica6taGrat" [checked]="servicio.aplica6taGrat" disabled>{{servicio.aplica6taGrat? 'Sí' : 'No'}}</td>
+<!--<td><button (click)="actualizar(servicio.id_servicio)" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>-->
+              <!--<td><button (click)="eliminar(servicio)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>-->
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+        </div>
+  
+
+<!--Establecer apartado crediticio-->
+  

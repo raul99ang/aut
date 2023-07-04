@@ -1,0 +1,592 @@
+<div class="container">
+  <img
+    src="../assets/img/2x3-carwahs-logo-blanco.png"
+    width="auto"
+    height="auto"
+    class="d-inline-block align-top"
+    alt=""
+    routerLink="/Landing"
+  />
+</div>
+<div class="button-container m-5">
+  <button type="button" class="btn btn-primary" routerLink="/registro">
+    <i class="fas fa-arrow-left" style="font-size: 24px"></i>
+  </button>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="card mt-5">
+        <div class="card-info">
+          <div class="card-header text-white">
+            {{ this.isNew ? "Registrar Empleado" : "Actualizar Empleado" }}
+          </div>
+          <div class="card-body">
+            <form
+              (ngSubmit)="submitEmpleado(forma)"
+              #forma="ngForm"
+              class="row g-3"
+            >
+              <div class="col-md-6">
+                <label for="label-id" class="form-label">id:</label>"
+                <input
+                  #inputid="ngModel"
+                  type="text"
+                  name="id"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputid.touched && inputid.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.id"
+                  class="form-control"
+                  id="id"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-area" class="form-label">area:</label>"
+                <input
+                  #inputarea="ngModel"
+                  type="text"
+                  name="area"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputarea.touched && inputarea.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.area"
+                  class="form-control"
+                  id="area"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-sucursal" class="form-label">sucursal:</label
+                >"
+                <input
+                  #inputsucursal="ngModel"
+                  type="text"
+                  name="sucursal"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputsucursal.touched &&
+                      inputsucursal.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.sucursal"
+                  class="form-control"
+                  id="sucursal"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-nombre" class="form-label">nombre:</label>"
+                <input
+                  #inputnombre="ngModel"
+                  type="text"
+                  name="nombre"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputnombre.touched && inputnombre.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.nombre"
+                  class="form-control"
+                  id="nombre"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-edad" class="form-label">edad:</label>"
+                <input
+                  #inputedad="ngModel"
+                  type="text"
+                  name="edad"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputedad.touched && inputedad.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.edad"
+                  class="form-control"
+                  id="edad"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-asistencias" class="form-label"
+                  >asistencias:</label
+                >"
+                <input
+                  #inputasistencias="ngModel"
+                  type="text"
+                  name="asistencias"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputasistencias.touched &&
+                      inputasistencias.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.asistencias"
+                  class="form-control"
+                  id="asistencias"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-fecha_ingreso" class="form-label"
+                  >fecha_ingreso:</label
+                >"
+                <input
+                  #inputfecha_ingreso="ngModel"
+                  type="date"
+                  name="fecha_ingreso"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputfecha_ingreso.touched &&
+                      inputfecha_ingreso.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.fecha_ingreso"
+                  class="form-control"
+                  id="fecha_ingreso"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-fecha_nacimiento" class="form-label"
+                  >fecha_nacimiento:</label
+                >"
+                <input
+                  #inputfecha_nacimiento="ngModel"
+                  type="date"
+                  name="fecha_nacimiento"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputfecha_nacimiento.touched &&
+                      inputfecha_nacimiento.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.fecha_nacimiento"
+                  class="form-control"
+                  id="fecha_nacimiento"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-correo_electronico" class="form-label"
+                  >correo_electronico:</label
+                >"
+                <input
+                  #inputcorreo_electronico="ngModel"
+                  type="text"
+                  name="correo_electronico"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputcorreo_electronico.touched &&
+                      inputcorreo_electronico.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.correo_electronico"
+                  class="form-control"
+                  id="correo_electronico"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >contrato</label
+                  >
+                  <input
+                    #inputcontrato="ngModel"
+                    name="contrato"
+                    [(ngModel)]="empleado.contrato"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="contrato"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-vigencia_contrato" class="form-label"
+                  >vigencia_contrato:</label
+                >"
+                <input
+                  #inputvigencia_contrato="ngModel"
+                  type="date"
+                  name="vigencia_contrato"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputvigencia_contrato.touched &&
+                      inputvigencia_contrato.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.vigencia_contrato"
+                  class="form-control"
+                  id="vigencia_contrato"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >acta_de_nacimiento</label
+                  >
+                  <input
+                    #inputacta_de_nacimiento="ngModel"
+                    name="acta_de_nacimiento"
+                    [(ngModel)]="empleado.acta_de_nacimiento"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="acta_de_nacimiento"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >reglamento_interno</label
+                  >
+                  <input
+                    #inputreglamento_interno="ngModel"
+                    name="reglamento_interno"
+                    [(ngModel)]="empleado.reglamento_interno"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="reglamento_interno"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >solicitud_de_trabajo</label
+                  >
+                  <input
+                    #inputsolicitud_de_trabajo="ngModel"
+                    name="solicitud_de_trabajo"
+                    [(ngModel)]="empleado.solicitud_de_trabajo"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="solicitud_de_trabajo"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >formato_registro</label
+                  >
+                  <input
+                    #inputformato_registro="ngModel"
+                    name="formato_registro"
+                    [(ngModel)]="empleado.formato_registro"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="formato_registro"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-domicilio" class="form-label"
+                  >domicilio:</label
+                >"
+                <input
+                  #inputdomicilio="ngModel"
+                  type="text"
+                  name="domicilio"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputdomicilio.touched &&
+                      inputdomicilio.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.domicilio"
+                  class="form-control"
+                  id="domicilio"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-pais" class="form-label">pais:</label>"
+                <input
+                  #inputpais="ngModel"
+                  type="text"
+                  name="pais"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputpais.touched && inputpais.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.pais"
+                  class="form-control"
+                  id="pais"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-facebook" class="form-label">facebook:</label
+                >"
+                <input
+                  #inputfacebook="ngModel"
+                  type="text"
+                  name="facebook"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputfacebook.touched &&
+                      inputfacebook.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.facebook"
+                  class="form-control"
+                  id="facebook"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-telefono" class="form-label">telefono:</label
+                >"
+                <input
+                  #inputtelefono="ngModel"
+                  type="text"
+                  name="telefono"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputtelefono.touched &&
+                      inputtelefono.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.telefono"
+                  class="form-control"
+                  id="telefono"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-genero" class="form-label">genero:</label>"
+                <input
+                  #inputgenero="ngModel"
+                  type="text"
+                  name="genero"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputgenero.touched && inputgenero.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.genero"
+                  class="form-control"
+                  id="genero"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <label for="label-estado_civil" class="form-label"
+                  >estado_civil:</label
+                >"
+                <input
+                  #inputestado_civil="ngModel"
+                  type="text"
+                  name="estado_civil"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputestado_civil.touched &&
+                      inputestado_civil.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.estado_civil"
+                  class="form-control"
+                  id="estado_civil"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >imss</label
+                  >
+                  <input
+                    #inputimss="ngModel"
+                    name="imss"
+                    [(ngModel)]="empleado.imss"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="imss"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >infonavit</label
+                  >
+                  <input
+                    #inputinfonavit="ngModel"
+                    name="infonavit"
+                    [(ngModel)]="empleado.infonavit"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="infonavit"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >curp</label
+                  >
+                  <input
+                    #inputcurp="ngModel"
+                    name="curp"
+                    [(ngModel)]="empleado.curp"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="curp"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >permiso_menor</label
+                  >
+                  <input
+                    #inputpermiso_menor="ngModel"
+                    name="permiso_menor"
+                    [(ngModel)]="empleado.permiso_menor"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="permiso_menor"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >ine_tutor</label
+                  >
+                  <input
+                    #inputine_tutor="ngModel"
+                    name="ine_tutor"
+                    [(ngModel)]="empleado.ine_tutor"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="ine_tutor"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >ine_empleado</label
+                  >
+                  <input
+                    #inputine_empleado="ngModel"
+                    name="ine_empleado"
+                    [(ngModel)]="empleado.ine_empleado"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="ine_empleado"
+                  />
+                </div>
+                <div class="invalid-feedback">Field required</div>
+              </div>
+              <!--<div class="col-md-6">
+                <label for="label-foto" class="form-label">foto:</label>"
+                <input
+                  #inputfoto="ngModel"
+                  type="text"
+                  name="foto"
+                  [ngClass]="{
+                    'is-invalid':
+                      inputfoto.touched && inputfoto.hasError('required')
+                  }"
+                  [(ngModel)]="empleado.foto"
+                  class="form-control"
+                  id="foto"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Field required</div>
+              </div>-->
+              <div class="col-12 text-center">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="forma.invalid"
+                >
+                  {{ this.isNew ? "Registrar" : "Actualizar" }}
+                </button>
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="limpiarForm(forma)"
+                >
+                  Limpiar
+                </button>
+                <button
+                  *ngIf="!this.isNew"
+                  style="margin-left: 10px"
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="emitChange.emit()"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  style="margin-left: 10px"
+                  class="btn btn-primary"
+                  type="button"
+                  routerLink="/empleado"
+                >
+                  Lista
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
